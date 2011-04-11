@@ -17,7 +17,9 @@ class router {
 
  public $controller;
 
- public $action; 
+ public $action;
+ 
+ public $other;
 
  function __construct($registry) {
         $this->registry = $registry;
@@ -117,6 +119,7 @@ private function getController() {
 		/*** get the parts of the route ***/
 		$parts = explode('/', $route);
 		$this->controller = $parts[0];
+		$this->other = $parts;
 		if(isset( $parts[1]))
 		{
 			$this->action = $parts[1];
